@@ -13,13 +13,15 @@ setup(
     author_email='risto.kowaczewski@gmail.com',
     packages=['tracardi_day_night_split'],
     install_requires=[
-        'pytz==2021.1',
         'tracardi_plugin_sdk',
+        'geopy==2.2.0',
+        'astral=2.2'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Development Status :: 3 - Alpha"
     ],
     keywords=['tracardi', 'plugin'],
     include_package_data=True,

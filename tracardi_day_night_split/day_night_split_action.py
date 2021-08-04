@@ -1,6 +1,10 @@
+from datetime import datetime
+
 from tracardi_plugin_sdk.domain.register import Plugin, Spec, MetaData
 from tracardi_plugin_sdk.action_runner import ActionRunner
 from tracardi_plugin_sdk.domain.result import Result
+
+from tracardi_day_night_split.plugin.day_night_checker import is_day
 
 
 class DayNightSplitAction(ActionRunner):
@@ -9,7 +13,11 @@ class DayNightSplitAction(ActionRunner):
         pass
 
     async def run(self, void):
-        return Result(value=True, port="day"), Result(value=None, port="night")
+        time_zone = self.session.context.time.tz
+        if is_day(time_zone):
+            return Result(value=True, port="day"), Result(value=None, port="night")
+
+        return Result(value=None, port="day"), Result(value=True, port="night")
 
 
 def register() -> Plugin:
