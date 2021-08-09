@@ -1,5 +1,5 @@
 from datetime import datetime
-from tracardi_day_night_split.plugin.day_night_checker import day_night_split
+from tracardi_day_night_split.plugin.day_night_checker import day_night_split, is_day
 
 
 def test_day_night_split():
@@ -12,3 +12,8 @@ def test_day_night_split():
     assert sun_set.hour == 18
     assert sun_set.minute == 21
     assert sun_set.second == 5
+
+
+def test_is_day():
+    result = is_day("Europe/Warsaw")
+    assert isinstance(result, bool)

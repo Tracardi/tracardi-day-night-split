@@ -4,6 +4,7 @@ from typing import Tuple
 from geopy import Nominatim
 from astral import LocationInfo
 from astral.sun import sun
+import pytz
 
 
 def day_night_split(town: str, time_now: datetime) -> Tuple[datetime, datetime]:
@@ -19,7 +20,10 @@ def day_night_split(town: str, time_now: datetime) -> Tuple[datetime, datetime]:
 
 def is_day(time_zone):
     _, town = time_zone.split('/')
-    now = datetime.utcnow()
+    now = datetime.now()
+
+    utc = pytz.UTC
+    now = now.replace(tzinfo=utc)
 
     sun_rise, sun_set = day_night_split(town, now)
 

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='tracardi-day-night-split',
-    version='0.1.5',
+    version='0.2.1',
     description='The purpose of this plugin is to split the workflow depending on whether it is day or night of its execution.',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -15,7 +15,9 @@ setup(
     install_requires=[
         'tracardi_plugin_sdk',
         'geopy==2.2.0',
-        'astral=2.2'
+        'astral==2.2',
+        'pytz==2021.1',
+        'tracardi-dot-notation'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
