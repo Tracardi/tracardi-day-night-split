@@ -14,9 +14,9 @@ setup(
     packages=['tracardi_day_night_split'],
     install_requires=[
         'tracardi_plugin_sdk',
-        'geopy==2.2.0',
-        'astral==2.2',
-        'pytz==2021.1',
+        'geopy>=2.2.0',
+        'astral>=2.2',
+        'pytz',
         'tracardi-dot-notation'
     ],
     classifiers=[
