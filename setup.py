@@ -23,7 +23,6 @@ setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Development Status :: 3 - Alpha"
     ],
     keywords=['tracardi', 'plugin'],
     include_package_data=True,
