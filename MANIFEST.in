@@ -1,2 +1,2 @@
-recursive-include tracardi_day_night_split/plugin *
-recursive-include tracardi_day_night_split/manual *
+recursive-include tracardi_day_night_split/model *
+recursive-include tracardi_day_night_split/service *

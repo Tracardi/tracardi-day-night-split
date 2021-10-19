@@ -1,5 +1,5 @@
 from datetime import datetime
-from tracardi_day_night_split.plugin.day_night_checker import day_night_split, is_day
+from tracardi_day_night_split.service.day_night_checker import day_night_split, is_day
 
 
 def test_day_night_split():
