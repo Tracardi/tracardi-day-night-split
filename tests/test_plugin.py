@@ -5,8 +5,9 @@ from tracardi_day_night_split.plugin import DayNightSplitAction
 
 def test_plugin():
     init = {
-        "timezone": "europe/warsaw"
+        "latitude": "payload@x",
+        "longitude": "payload@y"
     }
 
-    result = run_plugin(DayNightSplitAction, init, {})
+    result = run_plugin(DayNightSplitAction, init, {"x": "48.864716", "y": "2.349014"})
     print(result)

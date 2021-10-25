@@ -18,9 +18,10 @@ class DayNightSplitAction(ActionRunner):
 
     async def run(self, payload):
         dot = self._get_dot_accessor(payload)
-        city = dot[self.config.city]
+        latitude = dot[self.config.latitude]
+        longitude = dot[self.config.longitude]
 
-        if is_day(city, self.config.service):
+        if is_day(longitude, latitude):
             return Result(value=payload, port="day"), Result(value=None, port="night")
 
         return Result(value=None, port="day"), Result(value=payload, port="night")
@@ -37,38 +38,32 @@ def register() -> Plugin:
             outputs=["day", "night"],
             manual='day_night_split_action',
             init={
-                "service": "open-street-map",
-                "city": "paris"
+                "latitude": None,
+                "longitude": None
             },
             version="0.6.0",
             form=Form(groups=[
                 FormGroup(
                     fields=[
                         FormField(
-                            id="service",
-                            name="Geo location service provider",
-                            description="Select service provider.",
-                            component=FormComponent(type="select", props={
-                                "label": "provider",
-                                "items": {
-                                    "open-street-map": "Open Street Map",
-                                    "google-map": "Google Map",
-                                    "bing": "Bing"
-                                }})
+                            id="latitude",
+                            name="Latitude",
+                            description="Path to latitude data or latitude itself.",
+                            component=FormComponent(type="dotPath", props={"label": "Latitude"})
                         ),
                         FormField(
-                            id="city",
-                            name="City",
-                            description="Path to city data or city itself.",
-                            component=FormComponent(type="dotPath", props={"label": "City"})
+                            id="longitude",
+                            name="Longitude",
+                            description="Path to longitude data or longitude itself.",
+                            component=FormComponent(type="dotPath", props={"label": "longitude"})
                         )
                     ]
                 ),
             ]),
         ),
         metadata=MetaData(
-            name='City Day/Night',
-            desc='Splits workflow whether it is day or night in a given city.',
+            name='Day/Night',
+            desc='Splits workflow whether it is day or night in a given latitude, longitude.',
             type='flowNode',
             width=200,
             height=100,
