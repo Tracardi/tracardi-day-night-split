@@ -15,5 +15,5 @@ def test_day_night_split():
 
 
 def test_is_day():
-    result = is_day("Europe/Warsaw")
+    result = is_day("Warsaw")
     assert isinstance(result, bool)

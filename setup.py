@@ -14,7 +14,7 @@ setup(
     packages=['tracardi_day_night_split'],
     install_requires=[
         'pydantic',
-        'tracardi_plugin_sdk>=0.6.21',
+        'tracardi_plugin_sdk>=0.6.22',
         'geopy>=2.2.0',
         'astral>=2.2',
         'pytz',
