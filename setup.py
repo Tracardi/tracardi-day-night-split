@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='tracardi-day-night-split',
-    version='0.6.0',
+    version='0.6.1',
     description='The purpose of this plugin is to split the workflow depending on whether it is day or night of its execution.',
     long_description=long_description,
     long_description_content_type="text/markdown",
